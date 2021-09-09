@@ -103,7 +103,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             member=find_blood(group, args[1])
             if member == 'no':
                 resultDICT['Group']=group
-                resultDICT['member']=''
                 resultDICT['request']='no'
             else:
                 resultDICT['Group']=group
@@ -120,7 +119,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             member=find_blood(group, args[1])
             if member == 'no':
                 resultDICT['Group']=group
-                resultDICT['member']=''
                 resultDICT['request']='no'
             else:
                 resultDICT['Group']=group
@@ -161,7 +159,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "誰是[O]型":
         if args[0] in 'ABO':
             resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']=args[0]+'型'
 
     return resultDICT

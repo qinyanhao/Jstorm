@@ -36,8 +36,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[Jstorm][旗下]有哪些[團體]":
         if args[0] in userDefinedDICT['Jstorm']:
             resultDICT['Group']=Jstorm
-            resultDICT['GroupPic']=ProfilePic
-            resultDICT['request']='allinfo'
+            resultDICT['request']=ProfilePic
         else:
             pass
 
@@ -57,13 +56,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[旗下]有誰":
         resultDICT['Group']=Jstorm
-        resultDICT['GroupPic']=ProfilePic
-        resultDICT['request']='allinfo'
+        resultDICT['request']=ProfilePic
 
     if utterance == "有哪些[團體]":
         resultDICT['Group']=Jstorm
-        resultDICT['GroupPic']=ProfilePic
-        resultDICT['request']='allinfo'
+        resultDICT['request']=ProfilePic
 
     if utterance == "[嵐]是[Jstorm]的嗎":
         if args[1] in userDefinedDICT['Jstorm']:

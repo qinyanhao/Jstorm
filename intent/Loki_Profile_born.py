@@ -133,10 +133,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[2] in placeDICT.values():
                 place=args[2]
                 
-            resultDICT['member']=find_born(group,place)
             resultDICT['Group']=group
             resultDICT['request']=place
-           
+            if find_born(group,place) != []:
+                resultDICT['member']=find_born(group,place)
+            else:
+                resultDICT['member']='no'
 
     if utterance == "[跳跳][裡]有誰是[東京]人":
         if args[0] in groupLIST :
@@ -150,10 +152,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[2] in placeDICT.values():
                 place=args[2]
                 
-            resultDICT['member']=find_born(group,place)
             resultDICT['Group']=group
             resultDICT['request']=place
-
+            if find_born(group,place) != []:
+                resultDICT['member']=find_born(group,place)
+            else:
+                resultDICT['member']='no'
+            
     if utterance == "[高木雄也]是哪裡人":
         if args[0] in nicknameLIST:
             for k in userDefinedDICT.keys():
@@ -187,7 +192,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in placeDICT.values():
                 place=args[0]
                 
-            resultDICT['member']=""
             resultDICT['Group']=''
             resultDICT['request']=place
 
@@ -198,7 +202,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in placeDICT.values():
                 place=args[0]
                 
-            resultDICT['member']=''
             resultDICT['Group']=''
             resultDICT['request']=place
 

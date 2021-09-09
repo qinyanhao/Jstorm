@@ -365,22 +365,20 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if name in tokio:
                 resultDICT['Group']='TOKIO'
                 resultDICT['member']=name
-                resultDICT['request']='yes'
+                resultDICT['request']='yes.group'
             elif name in arashi:
                 resultDICT['Group']='嵐'
                 resultDICT['member']=name
-                resultDICT['request']='yes'
+                resultDICT['request']='yes.group'
             elif name in kattun:
                 resultDICT['Group']='KAT-TUN'
                 resultDICT['member']=name
-                resultDICT['request']='yes'
+                resultDICT['request']='yes.group'
             elif name in jump:
                 resultDICT['Group']='Hey! Say! JUMP'
                 resultDICT['member']=name
-                resultDICT['request']='yes'
+                resultDICT['request']='yes.group'
             else:
-                resultDICT['Group']=''
-                resultDICT['member']=''
                 resultDICT['request']='no'
                     
                     

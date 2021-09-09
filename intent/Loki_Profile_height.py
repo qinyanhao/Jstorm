@@ -64,45 +64,37 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[0][-1] in '大小':
             if args[0][-1] =='大':
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.max'
                 
             else: #args[1][-1] == '小'
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.min'
 
     if utterance == "[最高]":
         if args[0][-1] in '高矮':
             if args[0][-1] =='高':
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.max'
             else: #args[1][-1] == '矮'
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.min'
 
     if utterance == "[最高]到[最矮]":
         if args[0][-1] and args[1][-1] in '高矮':
             if args[0][-1] =='高':
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.sort.HtoL'
             else: #args[1][-1] == '矮'
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.sort.LtoH'
 
     if utterance == "誰[最高]":
         if args[0][-1] in '高矮':
             if args[0][-1] =='高':
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.max'
             else: #args[1][-1] == '矮'
                 resultDICT['Group']=""
-                resultDICT['member']=""
                 resultDICT['request']='height.min'
 
     if utterance == "[KT]誰[最矮]":

@@ -83,23 +83,19 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in userDefinedDICT['TOKIO']:
                 resultDICT['Group']='TOKIO'
                 resultDICT['member']=tokio
-                resultDICT['memberPic']=tokioPic
-                resultDICT['request']='allinfo' 
+                resultDICT['request']=tokioPic
             if args[0] in userDefinedDICT['嵐']: 
                 resultDICT['Group']='嵐'
                 resultDICT['member']=arashi
-                resultDICT['memberPic']=arashiPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=arashiPic
             if args[0] in userDefinedDICT['KAT-TUN']:
                 resultDICT['Group']='KAT-TUN'
                 resultDICT['member']=kattun
-                resultDICT['memberPic']=kattunPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=kattunPic
             if args[0] in userDefinedDICT['Hey! Say! JUMP']:
                 resultDICT['Group']='Hey! Say! JUMP'
                 resultDICT['member']=jump
-                resultDICT['memberPic']=jumpPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=jumpPic
         else:  
              pass
 
@@ -108,23 +104,19 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in userDefinedDICT['TOKIO']:
                 resultDICT['Group']='TOKIO'
                 resultDICT['member']=tokio
-                resultDICT['memberPic']=tokioPic
-                resultDICT['request']='allinfo' 
+                resultDICT['request']=tokioPic
             if args[0] in userDefinedDICT['嵐']: 
                 resultDICT['Group']='嵐'
                 resultDICT['member']=arashi
-                resultDICT['memberPic']=arashiPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=arashiPic
             if args[0] in userDefinedDICT['KAT-TUN']:
                 resultDICT['Group']='KAT-TUN'
                 resultDICT['member']=kattun
-                resultDICT['memberPic']=kattunPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=kattunPic
             if args[0] in userDefinedDICT['Hey! Say! JUMP']:
                 resultDICT['Group']='Hey! Say! JUMP'
                 resultDICT['member']=jump
-                resultDICT['memberPic']=jumpPic
-                resultDICT['request']='allinfo'
+                resultDICT['request']=jumpPic
         else:  
              pass
 
