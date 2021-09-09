@@ -238,26 +238,10 @@ jump=['薮宏太','八乙女光','高木雄也','伊野尾慧','有岡大貴','�
 
 
 
-def Result(inputSTR, intentLIST=[]):
-    punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
-    inputLIST = punctuationPat.sub("\n", inputSTR).split("\n") 
-    print(inputLIST)
-    
-    filterLIST = intentLIST  
-    
-    resultDICT = runLoki(inputLIST, filterLIST)
-    print("Loki Result => {}".format(resultDICT))
-    
-            
-    if "msg" in resultDICT.keys() and resultDICT["msg"] == "No Match Intent!":
-        return False
-    else:
-        return resultDICT
-
 if __name__ == "__main__":
     #輸入其它句子試看看
     inputLIST = ["知念侑李是什麼血型"]
-    filterLIST = []
+    filterLIST = ['Profile_blood']
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
     ageLIST=[]
