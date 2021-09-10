@@ -164,5 +164,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
                 resultDICT['Group']=right_group
                 resultDICT['member']=name
                 resultDICT['request']='no'
+                
+                
+    if utterance == "[八乙女光]":
+        if args[0] in nicknameLIST:
+            for k in userDefinedDICT.keys():
+                if args[0] in userDefinedDICT[k]:
+                    name=k
+            resultDICT['member']=name
 
     return resultDICT

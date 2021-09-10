@@ -67,15 +67,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[年紀]從[大]排到[小]":
         if args[1] and args[2] in '大小':
             if args[1] =='大':
-                resultDICT["Group"]=''
                 resultDICT["request"]="age.sort.HtoL"
             else:
-                resultDICT["Group"]=''
                 resultDICT["request"]="age.sort.LtoH"
 
     if utterance == "[年齡]順序為何":
         if args[0] == '年齡' or '年紀:':
-            resultDICT["Group"]=''
             resultDICT["request"]="age.sort.HtoL"
 
     if utterance == "[阿貴]幾歲":
@@ -103,61 +100,45 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "最[年長]":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]="age.max"
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]="age.min"
 
     if utterance == "最[年長]是誰":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]="age.max"
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]="age.min"
 
     if utterance == "誰[最小]":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]="age.max"
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]="age.min"
 
     if utterance == "誰[最小]誰[最大]":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]=["age.max","age.min"]
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]=["age.min","age.max"]
             
     if utterance == "誰年紀[最小]":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]="age.max"
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]="age.min"
 
     if utterance == "誰是最[年長]":
         if args[0][-1] in "老大長":
-            resultDICT["Group"]=''
             resultDICT["request"]="age.max"
         else:
-            resultDICT["Group"]=''
             resultDICT["request"]="age.min"
             
     if utterance == "[他]幾歲":
-        resultDICT['Group']=''
-        resultDICT['member']=''
         resultDICT['request']='age'
         
 
     if utterance == "[現在]幾歲":
-        resultDICT['Group']=''
-        resultDICT['member']=''
         resultDICT['request']='age'
 
     return resultDICT

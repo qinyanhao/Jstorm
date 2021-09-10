@@ -158,7 +158,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "誰是[O]型":
         if args[0] in 'ABO':
-            resultDICT['Group']=''
             resultDICT['request']=args[0]+'型'
 
     return resultDICT

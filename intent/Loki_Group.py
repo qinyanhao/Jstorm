@@ -73,6 +73,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
             else:
                 resultDICT['Group']=key
                 resultDICT['request']='no'
-        
+                
+    if utterance == "[嵐]":
+        if args[0] in groupLIST:
+            for k in userDefinedDICT.keys():
+                if args[0] in userDefinedDICT[k]:
+                    group=k
+            resultDICT['Group']=group
 
     return resultDICT

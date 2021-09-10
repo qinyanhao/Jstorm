@@ -192,7 +192,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in placeDICT.values():
                 place=args[0]
                 
-            resultDICT['Group']=''
             resultDICT['request']=place
 
     if utterance == "誰是[東京]人":
@@ -202,7 +201,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
             if args[0] in placeDICT.values():
                 place=args[0]
                 
-            resultDICT['Group']=''
             resultDICT['request']=place
 
     return resultDICT

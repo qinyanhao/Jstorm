@@ -227,28 +227,18 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[生日]是什麼[時候]":
         if args[0] == '生日':
-            resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']='birth'
 
     if utterance == "[生日]是何時":
         if args[0] == '生日':
-            resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']='birth'
 
     if utterance == "幾[年]出生的":
         if args[0] == '年':
-            resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']='birth.year'
         if args[0] == '月':
-            resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']='birth.month'
         if args[0] in '日號':
-            resultDICT['Group']=''
-            resultDICT['member']=''
             resultDICT['request']='birth.day'
 
     return resultDICT
