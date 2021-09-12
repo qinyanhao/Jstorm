@@ -231,14 +231,14 @@ with open('D:\HAO\Hao的研所\實習\Jstorm\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
 
 knowledgeBASE = ProfileDICT
-tokio=['城島茂','国分太一','松岡昌宏']
-arashi=['大野智','櫻井翔','相葉雅紀','二宮和也','松本潤']
-kattun=['上田竜也','中丸雄一','亀梨和也']
-jump=['薮宏太','八乙女光','高木雄也','伊野尾慧','有岡大貴','中島裕翔','山田涼介','知念侑李']
+tokio=['国分太一','城島茂','松岡昌宏']
+arashi=['相葉雅紀','松本潤','二宮和也','大野智','櫻井翔']
+kattun=['亀梨和也','上田竜也','中丸雄一']
+jump=['山田涼介','知念侑李','中島裕翔','有岡大貴','髙木雄也','伊野尾慧','八乙女光','薮宏太']
 
 if __name__ == "__main__":
     #輸入其它句子試看看
-    inputLIST = ['光']
+    inputLIST = ['嵐有誰']
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
