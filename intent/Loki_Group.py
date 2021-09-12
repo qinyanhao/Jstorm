@@ -24,6 +24,8 @@ userDefinedDICT = {"age": ["年長", "年幼"], "嵐": ["嵐", "ARASHI", "Arashi
 groupLIST=userDefinedDICT['KAT-TUN']+userDefinedDICT['TOKIO']+userDefinedDICT['嵐']+userDefinedDICT['Hey! Say! JUMP']
 Jstorm=["TOKIO","嵐","KAT-TUN","Hey! Say! JUMP"]
 
+
+
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
     if DEBUG_Group:
@@ -64,14 +66,15 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[嵐]是[Jstorm]的嗎":
         if args[1] in userDefinedDICT['Jstorm']:
-            for k in userDefinedDICT.keys():
-                if args[0] in userDefinedDICT[k]:
-                    key=k
-            if key in Jstorm:
-                resultDICT['Group']=key
-                resultDICT['request']='yes'
+            if args[0] in groupLIST:
+                for k in userDefinedDICT.keys():
+                    if args[0] in userDefinedDICT[k]:
+                        key=k
+                if key in Jstorm:
+                    resultDICT['Group']=key
+                    resultDICT['request']='yes'
             else:
-                resultDICT['Group']=key
+                resultDICT['Group']=args[0]
                 resultDICT['request']='no'
                 
     if utterance == "[嵐]":
