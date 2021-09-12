@@ -54,26 +54,26 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['TOKIO'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['嵐'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in kattun:
                     for n in range(len(kattun)):
                         if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['KAT-TUN'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['EName']
-                            
+                            resultDICT['request']='EName'
+    
             if args[1] in jan:
                 for k in userDefinedDICT.keys():
                     if args[0] in userDefinedDICT[k]:
@@ -84,25 +84,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=key
+                            resultDICT['request']='JName'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=key
+                            resultDICT['request']='JName'
                 if key in kattun:
                     for n in range(len(kattun)):
                         if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=key
+                            resultDICT['request']='JName'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=key
+                            resultDICT['request']='JName'
 
     if utterance == "[潤潤]本名是什麼":
         if args[0] in nicknameLIST:
@@ -115,25 +115,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                     if key in ProfileDICT['TOKIO'][n]['JName']:
                         resultDICT['Group']='TOKIO'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in arashi:
                 for n in range(len(arashi)):
                     if key in ProfileDICT['嵐'][n]['JName']:
                         resultDICT['Group']='嵐'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in kattun:
                 for n in range(len(kattun)):
                     if key in ProfileDICT['KAT-TUN'][n]['JName']:
                         resultDICT['Group']='KAT-TUN'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in jump:
                 for n in range(len(jump)):
                     if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                         resultDICT['Group']='Hey! Say! JUMP'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
 
     if utterance == "[翔翔]的[日語姓名]":
          if args[0] in nicknameLIST:
@@ -148,25 +148,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=key
+                                resultDICT['request']='JName'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=key
+                                resultDICT['request']='JName'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=key
+                                resultDICT['request']='JName'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=key
+                                resultDICT['request']='JName'
              if args[1] in eng:
                 if args[0] in nicknameLIST:
                     for k in userDefinedDICT.keys():
@@ -178,25 +178,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['EName']
+                                resultDICT['request']='EName'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['EName']
+                                resultDICT['request']='EName'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['EName']
+                                resultDICT['request']='EName'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['EName']
+                                resultDICT['request']='EName'
         
             
 
@@ -211,25 +211,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                     if key in ProfileDICT['TOKIO'][n]['JName']:
                         resultDICT['Group']='TOKIO'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in arashi:
                 for n in range(len(arashi)):
                     if key in ProfileDICT['嵐'][n]['JName']:
                         resultDICT['Group']='嵐'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in kattun:
                 for n in range(len(kattun)):
                     if key in ProfileDICT['KAT-TUN'][n]['JName']:
                         resultDICT['Group']='KAT-TUN'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
             if key in jump:
                 for n in range(len(jump)):
                     if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                         resultDICT['Group']='Hey! Say! JUMP'
                         resultDICT['member']=key
-                        resultDICT['request']=key
+                        resultDICT['request']='JName'
 
     if utterance == "[雅紀]的[英文][名字]是什麼":
         if args[0] in nicknameLIST:
@@ -244,25 +244,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['ELname']
+                                resultDICT['request']='ELname'
                     
                     
                 if args[2] in Fname:
@@ -275,25 +275,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['EFname']
+                                resultDICT['request']='EFname'
             if args[1] in jan:
                 if args[2] in Lname:
                     for k in userDefinedDICT.keys():
@@ -305,25 +305,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JLname']
+                                resultDICT['request']='JLname'
                     
                     
                 if args[2] in Fname:
@@ -336,25 +336,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JFname']
+                                resultDICT['request']='JFname'
 
     if utterance == "有人叫[知念]嗎":
         if args[0] in nicknameLIST:
@@ -379,7 +379,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
                 resultDICT['member']=name
                 resultDICT['request']='yes.group'
             else:
-                resultDICT['request']='no'
+                resultDICT['request']='no.group'
                     
                     
     if utterance == "[大貴][姓]什麼":
@@ -393,25 +393,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['TOKIO'][n]['JLname']
+                            resultDICT['request']='JLname'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['嵐'][n]['JLname']
+                            resultDICT['request']='JLname'
                 if key in kattun:
                     for n in range(len(kattun)):
                        if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JLname']
+                            resultDICT['request']='JLname'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JLname']
+                            resultDICT['request']='JLname'
             
             if args[1] in Fname:
                 if key in tokio:
@@ -419,25 +419,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['TOKIO'][n]['JFname']
+                            resultDICT['request']='JFname'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['嵐'][n]['JFname']
+                            resultDICT['request']='JFname'
                 if key in kattun:
                     for n in range(len(kattun)):
                        if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JFname']
+                            resultDICT['request']='JFname'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JFname']
+                            resultDICT['request']='JFname'
 
     if utterance == "[涼介]的[英文]名字是什麼":
         if args[0] in nicknameLIST:
@@ -451,25 +451,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['TOKIO'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['嵐'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in kattun:
                     for n in range(len(kattun)):
                         if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['KAT-TUN'][n]['EName']
+                            resultDICT['request']='EName'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['EName']
+                            resultDICT['request']='EName'
                             
             if args[1] in jan:
                 for k in userDefinedDICT.keys():
@@ -481,25 +481,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                         if key in ProfileDICT['TOKIO'][n]['JName']:
                             resultDICT['Group']='TOKIO'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['TOKIO'][n]['JName']
+                            resultDICT['request']='JName'
                 if key in arashi:
                     for n in range(len(arashi)):
                         if key in ProfileDICT['嵐'][n]['JName']:
                             resultDICT['Group']='嵐'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['嵐'][n]['JName']
+                            resultDICT['request']='JName'
                 if key in kattun:
                     for n in range(len(kattun)):
                         if key in ProfileDICT['KAT-TUN'][n]['JName']:
                             resultDICT['Group']='KAT-TUN'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JName']
+                            resultDICT['request']='JName'
                 if key in jump:
                     for n in range(len(jump)):
                         if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                             resultDICT['Group']='Hey! Say! JUMP'
                             resultDICT['member']=key
-                            resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JName']
+                            resultDICT['request']='JName'
 
     if utterance == "[雄也]的[英文姓氏]是什麼":
         if args[0] in nicknameLIST:
@@ -514,25 +514,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['ELname']
+                                resultDICT['request']='ELname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['ELname']
+                                resultDICT['request']='ELname'
                     
                     
                 if args[1][-2:] in Fname:
@@ -545,25 +545,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['EFname']
+                                resultDICT['request']='EFname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['EFname']
+                                resultDICT['request']='EFname'
             if args[1] in jan:
                 if args[1][-2:] in Lname:
                     for k in userDefinedDICT.keys():
@@ -575,25 +575,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JLname']
+                                resultDICT['request']='JLname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JLname']
+                                resultDICT['request']='JLname'
                     
                     
                 if args[1][-2:] in Fname:
@@ -606,25 +606,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                             if key in ProfileDICT['TOKIO'][n]['JName']:
                                 resultDICT['Group']='TOKIO'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['TOKIO'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in arashi:
                         for n in range(len(arashi)):
                             if key in ProfileDICT['嵐'][n]['JName']:
                                 resultDICT['Group']='嵐'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['嵐'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in kattun:
                         for n in range(len(kattun)):
                             if key in ProfileDICT['KAT-TUN'][n]['JName']:
                                 resultDICT['Group']='KAT-TUN'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['KAT-TUN'][n]['JFname']
+                                resultDICT['request']='JFname'
                     if key in jump:
                         for n in range(len(jump)):
                             if key in ProfileDICT['Hey! Say! JUMP'][n]['JName']:
                                 resultDICT['Group']='Hey! Say! JUMP'
                                 resultDICT['member']=key
-                                resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['JFname']
+                                resultDICT['request']='JFname'
 
 
     return resultDICT

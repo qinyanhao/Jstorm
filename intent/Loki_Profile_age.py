@@ -83,19 +83,19 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if name in tokio:
             resultDICT['Group']='TOKIO'
             resultDICT['member']=name
-            resultDICT['request']=str(findAge(name))+'歲'
+            resultDICT['request']='age'
         if name in arashi:
             resultDICT['Group']='嵐'
             resultDICT['member']=name
-            resultDICT['request']=str(findAge(name))+'歲'
+            resultDICT['request']='age'
         if name in kattun:
             resultDICT['Group']='KAT-TUN'
             resultDICT['member']=name
-            resultDICT['request']=str(findAge(name))+'歲'
+            resultDICT['request']='age'
         if name in jump:
             resultDICT['Group']='Hey! Say! JUMP'
             resultDICT['member']=name
-            resultDICT['request']=str(findAge(name))+'歲'
+            resultDICT['request']='age'
 
 
     if utterance == "最[年長]":
