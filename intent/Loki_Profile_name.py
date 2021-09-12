@@ -24,10 +24,10 @@ userDefinedDICT = {"age": ["年長", "年幼"], "嵐": ["嵐", "ARASHI", "Arashi
 nicknameLIST=userDefinedDICT['城島茂']+userDefinedDICT['国分太一']+userDefinedDICT['松岡昌宏']+userDefinedDICT['大野智']+userDefinedDICT['松本潤']+userDefinedDICT['櫻井翔']+userDefinedDICT['二宮和也']+userDefinedDICT['相葉雅紀']+userDefinedDICT['上田竜也']+userDefinedDICT['中丸雄一']+userDefinedDICT['亀梨和也']+userDefinedDICT['薮宏太']+userDefinedDICT['八乙女光']+userDefinedDICT['伊野尾慧']+userDefinedDICT['山田涼介']+userDefinedDICT['有岡大貴']+userDefinedDICT['中島裕翔']+userDefinedDICT['知念侑李']+userDefinedDICT['髙木雄也']
 groupLIST=userDefinedDICT['KAT-TUN']+userDefinedDICT['TOKIO']+userDefinedDICT['嵐']+userDefinedDICT['Hey! Say! JUMP']
 
-tokio=['城島茂','国分太一','松岡昌宏']
-arashi=['大野智','櫻井翔','相葉雅紀','二宮和也','松本潤']
-kattun=['上田竜也','中丸雄一','亀梨和也']
-jump=['薮宏太','八乙女光','髙木雄也','伊野尾慧','有岡大貴','中島裕翔','山田涼介','知念侑李']
+tokio=['国分太一','城島茂','松岡昌宏']
+arashi=['相葉雅紀','松本潤','二宮和也','大野智','櫻井翔']
+kattun=['亀梨和也','上田竜也','中丸雄一']
+jump=['山田涼介','知念侑李','中島裕翔','有岡大貴','髙木雄也','伊野尾慧','八乙女光','薮宏太']
 
 eng=['英文','英語','英語姓名','英文姓氏','英語姓氏','英文姓名']
 jan=['日文','日語','日語姓名','日文姓氏','日語姓氏','日文姓名']
