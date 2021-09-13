@@ -163,27 +163,35 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if args[0] in nicknameLIST:
             for k in userDefinedDICT.keys():
                 if args[0] in userDefinedDICT[k]:
-                    name=k
+                    name=k            
                     
         if name in tokio:
            resultDICT['Group']='TOKIO'
            resultDICT['member']=name
-           resultDICT['request']='born'
+           for n in range(len(ProfileDICT['TOKIO'])):
+               if name == ProfileDICT['TOKIO'][n]['JName']:
+                   resultDICT['request']=ProfileDICT['TOKIO'][n]['Born']
 
         if name in arashi:
             resultDICT['Group']='嵐'
             resultDICT['member']=name
-            resultDICT['request']='born'
+            for n in range(len(ProfileDICT['嵐'])):
+               if name == ProfileDICT['嵐'][n]['JName']:
+                   resultDICT['request']=ProfileDICT['嵐'][n]['Born']
                                 
         if name in kattun:
             resultDICT['Group']='KAT-TUN'
             resultDICT['member']=name
-            resultDICT['request']='born'
+            for n in range(len(ProfileDICT['KAT-TUN'])):
+               if name == ProfileDICT['KAT-TUN'][n]['JName']:
+                   resultDICT['request']=ProfileDICT['KAT-TUN'][n]['Born']
             
         if name in jump:
             resultDICT['Group']='Hey! Say! JUMP'
             resultDICT['member']=name
-            resultDICT['request']='born'
+            for n in range(len(ProfileDICT['Hey! Say! JUMP'])):
+               if name == ProfileDICT['Hey! Say! JUMP'][n]['JName']:
+                   resultDICT['request']=ProfileDICT['Hey! Say! JUMP'][n]['Born']
 
     if utterance == "誰來自[東京]":
         if args[0] in placeDICT.keys() or placeDICT.values():            

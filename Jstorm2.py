@@ -238,7 +238,7 @@ jump=['山田涼介','知念侑李','中島裕翔','有岡大貴','髙木雄也'
 
 if __name__ == "__main__":
     #輸入其它句子試看看
-    inputLIST = ['年齡順序為何']
+    inputLIST = ['幾月出生的']
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))

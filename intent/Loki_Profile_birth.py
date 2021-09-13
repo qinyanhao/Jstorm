@@ -172,25 +172,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                     if p['JName'] == key:
                         resultDICT['Group']='TOKIO'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in arashi:
                 for p in ProfileDICT['嵐']:
                     if p['JName'] == key:
                         resultDICT['Group']='嵐'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in kattun:
                 for p in ProfileDICT['KAT-TUN']:
                     if p['JName'] == key:
                         resultDICT['Group']='KAT-TUN'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in jump:
                 for p in ProfileDICT['Hey! Say! JUMP']:
                     if p['JName'] == key:
                         resultDICT['Group']='Hey! Say! JUMP'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
              
 
         
@@ -204,25 +204,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
                     if p['JName'] == key:
                         resultDICT['Group']='TOKIO'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in arashi:
                 for p in ProfileDICT['嵐']:
                     if p['JName'] == key:
                         resultDICT['Group']='嵐'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in kattun:
                 for p in ProfileDICT['KAT-TUN']:
                     if p['JName'] == key:
                         resultDICT['Group']='KAT-TUN'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
             if key in jump:
                 for p in ProfileDICT['Hey! Say! JUMP']:
                     if p['JName'] == key:
                         resultDICT['Group']='Hey! Say! JUMP'
                         resultDICT['member']=key
-                        resultDICT['request']=str(countBirth(key))+'天'
+                        resultDICT['request']=str(countBirth(key))
 
 
     if utterance == "[生日]是什麼[時候]":
@@ -235,10 +235,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "幾[年]出生的":
         if args[0] == '年':
-            resultDICT['request']='birth.year'
+            resultDICT['request']='year'
         if args[0] == '月':
-            resultDICT['request']='birth.month'
+            resultDICT['request']='month'
         if args[0] in '日號':
-            resultDICT['request']='birth.day'
+            resultDICT['request']='day'
 
     return resultDICT

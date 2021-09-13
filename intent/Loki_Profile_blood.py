@@ -36,11 +36,23 @@ def find_blood(group,blood):
     輸入:團名,血型
     輸出:人名
     '''
+    name=[]
     for n in range(0,len(ProfileDICT[group])):
         if ProfileDICT[group][n]['Blood'].replace('型',"") == blood:
-            name=ProfileDICT[group][n]['JName']
+            name.append(ProfileDICT[group][n]['JName'])
         else:
-            name='no'
+            name.append('no')
+    print(name)
+    length=len(name)
+    x=0
+    while x < length:
+        if name[x] == 'no':
+            del name[x]
+            x-= 1
+            length -= 1
+        x+=1
+    if name == []:
+        name = 'no'
     return name
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
@@ -103,7 +115,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
             member=find_blood(group, args[1])
             if member == 'no':
                 resultDICT['Group']=group
-                resultDICT['request']='no'
+                resultDICT['member']='no'
+                resultDICT['request']=args[1]+'型'
             else:
                 resultDICT['Group']=group
                 resultDICT['member']=member
@@ -119,7 +132,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
             member=find_blood(group, args[1])
             if member == 'no':
                 resultDICT['Group']=group
-                resultDICT['request']='no'
+                resultDICT['member']='no'
+                resultDICT['request']=args[1]+'型'
             else:
                 resultDICT['Group']=group
                 resultDICT['member']=member
