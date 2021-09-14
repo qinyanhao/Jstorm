@@ -171,7 +171,18 @@ def getResult(inputSTR, utterance, args, resultDICT):
             for k in userDefinedDICT.keys():
                 if args[0] in userDefinedDICT[k]:
                     name=k
-            resultDICT['member']=name
+            if name in tokio:
+                resultDICT['Group']='TOKIO'
+                resultDICT['member']=name
+            if name in arashi:
+                resultDICT['Group']='嵐'
+                resultDICT['member']=name
+            if name in kattun:
+                resultDICT['Group']='KAT-TUN'
+                resultDICT['member']=name
+            if name in jump:
+                resultDICT['Group']='Hey! Say! JUMP'
+                resultDICT['member']=name
             
             
     if utterance == "[KT]的[老大]":
