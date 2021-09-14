@@ -64,7 +64,6 @@ except:
     from .intent import Loki_Group
     from .intent import Loki_Group_member
 
-
 import json
 with open("account.info", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
@@ -227,6 +226,7 @@ def testLoki(inputLIST, filterLIST):
     for i in range(0, math.ceil(len(inputLIST) / INPUT_LIMIT)):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
 
+
 with open('D:\HAO\Hao的研所\實習\Jstorm\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
 
@@ -238,7 +238,7 @@ jump=['山田涼介','知念侑李','中島裕翔','有岡大貴','髙木雄也'
 
 if __name__ == "__main__":
     #輸入其它句子試看看
-    inputLIST = ['幾月出生的']
+    inputLIST = ['KT的老大']
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
