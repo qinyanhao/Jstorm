@@ -172,5 +172,17 @@ def getResult(inputSTR, utterance, args, resultDICT):
                 if args[0] in userDefinedDICT[k]:
                     name=k
             resultDICT['member']=name
+            
+            
+    if utterance == "[KT]的[老大]":
+        if args[1] in nicknameLIST and args[0] in groupLIST:
+            for k in userDefinedDICT.keys():
+                if args[1] in userDefinedDICT[k]:
+                    name=k
+            for k in userDefinedDICT.keys():
+                if args[0] in userDefinedDICT[k]:
+                    group=k
+            resultDICT['Group']=group
+            resultDICT['member']=name
 
     return resultDICT
