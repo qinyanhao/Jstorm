@@ -165,6 +165,7 @@ async def on_message(message):
 
     else:
         lokiResultDICT=getLokiResult(msgSTR)    # 取得 Loki 回傳結果
+        print(lokiResultDICT)
         
         if client.user.id not in mscDICT:    # 判斷 User 是否為第一輪對話
             mscDICT[client.user.id] = {"group":"",
@@ -172,7 +173,11 @@ async def on_message(message):
                                        "request":"",
                                        "completed": False,
                                        "updatetime": datetime.datetime.now()
-                                               }
+                                              }
+            
+        if len(lokiResultDICT.keys())==1:
+            mscDICT[client.user.id]["member"] = ""
+            mscDICT[client.user.id]["request"] = ""
         #多輪對話
         if lokiResultDICT:
             for k in lokiResultDICT.keys():    # 將 Loki Intent 的結果，存進 Global mscDICT 變數，可替換成 Database。
@@ -182,11 +187,10 @@ async def on_message(message):
                     mscDICT[client.user.id]["member"] = lokiResultDICT["member"]
                 elif k == 'request':
                     mscDICT[client.user.id]["request"] = lokiResultDICT["request"]
-                # elif k == "msg":
-                #     replySTR = lokiResultDICT[k]
-                #     if mscDICT[client.user.id]["request"] == "":
-                #         replySTR += "\n請問你想問什麼呢？"
-                #     print("Loki msg:", replySTR, "\n")
+        
+        if len(lokiResultDICT.keys()) == 1 and lokiResultDICT.keys() == 'Group':
+            mscDICT[client.user.id]['member']=""
+            mscDICT[client.user.id]["request"]=""
 
         print("mscDICT =")
         pprint(mscDICT)
