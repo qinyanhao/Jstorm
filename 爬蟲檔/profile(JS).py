@@ -99,7 +99,7 @@ GroupDICT={}
 GroupDICT['TOKIO']={'formationdate':'1994.4','debutdate':'1994.9.21','Pic':'https://www.j-storm.co.jp'+l3[0]}
 GroupDICT['嵐']={'formationdate':'1999.9.15,','debutdate':'1999.11.3','Pic':'https://www.j-storm.co.jp'+l3[1]}
 GroupDICT['KAT-TUN']={'formationdate':'2001.3.6','debutdate':'2006.3.22','Pic':'https://www.j-storm.co.jp'+l3[2]}
-GroupDICT['JUMP']={'formationdate':'2007.9.24','debutdate':'2007.11.14','Pic':'https://www.j-storm.co.jp'+l3[3]}
+GroupDICT['Hey! Say! JUMP']={'formationdate':'2007.9.24','debutdate':'2007.11.14','Pic':'https://www.j-storm.co.jp'+l3[3]}
 
 
 import json
