@@ -49,21 +49,24 @@ try:
     from intent import Loki_Profile_name
     from intent import Loki_Profile_born
     from intent import Loki_Profile_age
+    from intent import Loki_Profile_color
+    from intent import Loki_request
     from intent import Loki_Profile_birth
     from intent import Loki_Profile_height
     from intent import Loki_Profile_blood
-    from intent import Loki_Group
     from intent import Loki_Group_member
+    from intent import Loki_Group
 except:
     from .intent import Loki_Profile_name
     from .intent import Loki_Profile_born
     from .intent import Loki_Profile_age
+    from .intent import Loki_Profile_color
+    from .intent import Loki_request
     from .intent import Loki_Profile_birth
     from .intent import Loki_Profile_height
     from .intent import Loki_Profile_blood
-    from .intent import Loki_Group
     from .intent import Loki_Group_member
-
+    from .intent import Loki_Group
 
 import json
 with open("account.info", encoding="utf-8") as f:
@@ -198,6 +201,14 @@ def runLoki(inputLIST, filterLIST=[]):
                 if lokiRst.getIntent(index, resultIndex) == "Profile_age":
                     resultDICT = Loki_Profile_age.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
 
+                # Profile_color
+                if lokiRst.getIntent(index, resultIndex) == "Profile_color":
+                    resultDICT = Loki_Profile_color.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+
+                # request
+                if lokiRst.getIntent(index, resultIndex) == "request":
+                    resultDICT = Loki_request.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+
                 # Profile_birth
                 if lokiRst.getIntent(index, resultIndex) == "Profile_birth":
                     resultDICT = Loki_Profile_birth.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
@@ -210,13 +221,13 @@ def runLoki(inputLIST, filterLIST=[]):
                 if lokiRst.getIntent(index, resultIndex) == "Profile_blood":
                     resultDICT = Loki_Profile_blood.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
 
-                # Group
-                if lokiRst.getIntent(index, resultIndex) == "Group":
-                    resultDICT = Loki_Group.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
-
                 # Group_member
                 if lokiRst.getIntent(index, resultIndex) == "Group_member":
                     resultDICT = Loki_Group_member.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+
+                # Group
+                if lokiRst.getIntent(index, resultIndex) == "Group":
+                    resultDICT = Loki_Group.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
 
     else:
         resultDICT = {"msg": lokiRst.getMessage()}
@@ -227,20 +238,10 @@ def testLoki(inputLIST, filterLIST):
     for i in range(0, math.ceil(len(inputLIST) / INPUT_LIMIT)):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
 
-with open('D:\HAO\Hao的研所\實習\Jstorm\ProfileDICT.json', 'r') as f:
-    ProfileDICT=json.load(f)
-
-knowledgeBASE = ProfileDICT
-tokio=['国分太一','城島茂','松岡昌宏']
-arashi=['相葉雅紀','松本潤','二宮和也','大野智','櫻井翔']
-kattun=['亀梨和也','上田竜也','中丸雄一']
-jump=['山田涼介','知念侑李','中島裕翔','有岡大貴','髙木雄也','伊野尾慧','八乙女光','薮宏太']
 
 if __name__ == "__main__":
-    #輸入其它句子試看看
-    inputLIST = ['幾月出生的']
-    filterLIST = []
+    # 輸入其它句子試看看
+    inputLIST = ["出道幾周年"]
+    filterLIST = ['Group']
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
-    ageLIST=[]
-    
