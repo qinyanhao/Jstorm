@@ -335,7 +335,7 @@ async def on_message(message):
         pprint(mscDICT)
         
         if mscDICT[client.user.id]["request"] == "":  # 多輪對話的問句。
-            replySTR = '請問你想問的是哪方面呢？（各團成員、日英姓名、生日、年齡、血型、出身地）'
+            replySTR = '請問你想問的是哪方面呢？（成員、日英姓名、生日、年齡、血型、身高、出身地、成員色）'
         
         elif mscDICT[client.user.id]['group'] == "" and mscDICT[client.user.id]["member"] == "": 
             if mscDICT[client.user.id]["request"] in ("age","height","birth",'year','month','day','color'):
