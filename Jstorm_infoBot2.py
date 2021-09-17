@@ -381,7 +381,7 @@ async def on_message(message):
     replySTR = ""    # Bot 回應訊息
 
     if msgSTR in ("","哈囉","嗨","嗨嗨","你好","您好","在嗎","早安","午安","晚安","こんにちは","こんばんは","やっほー","やっはろ","やほー","Hi","hi","hello","Hello","安安"):
-        replySTR = "你好呀~有什麼可以為你服務的？\n我可以提供你Jstorm旗下藝人的基本資料喔！\n（團體的基本資料、各團成員、日英姓名、生日、年齡、血型、身高、出身地、成員色）"
+        replySTR = "你好呀~有什麼可以為你服務的？\n我可以提供你Jstorm旗下藝人的基本資料喔！\n（團體的基本資料、各團成員的基本資料）"
         await message.reply(replySTR)
 
     else:
@@ -420,7 +420,7 @@ async def on_message(message):
         pprint(mscDICT)
  
         if mscDICT[client.user.id]["request"] == "":  # 多輪對話的問句。
-            replySTR = '請問你想問的是哪方面呢？（成員、日英姓名、生日、年齡、血型、身高、出身地、成員色）'
+            replySTR = '請問你想問的是哪方面呢？\n（基本資料、日英姓名、生日、年齡、血型、身高、出身地、成員色）'
         
         elif mscDICT[client.user.id]['group'] == "" and mscDICT[client.user.id]["member"] == "": 
             if mscDICT[client.user.id]["request"] in ("age","height","birth",'year','month','day','color'):
