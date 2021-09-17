@@ -215,6 +215,62 @@ def findDate(group,anniversary):
             date=GroupDICT['Hey! Say! JUMP']['debutdate']            
     return date
 
+def findInfo(name):
+    '''
+    輸入：本名
+    輸出：[日文名字,英文名字,圖片,生日,血型,身高,出生地,成員色](list)
+    '''
+    infoLIST=[]
+    if name in tokio:
+        for n in range(len(tokio)):
+            if ProfileDICT['TOKIO'][n]['JName']==name:
+                infoLIST.append(ProfileDICT['TOKIO'][n]['JName'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['EName'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['Pic'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['Birth'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['Blood'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['height'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['Born'])
+                infoLIST.append(ProfileDICT['TOKIO'][n]['color'])
+                
+    if name in arashi:
+        for n in range(len(arashi)):         
+            if ProfileDICT['嵐'][n]['JName']==name:
+                infoLIST.append(ProfileDICT['嵐'][n]['JName'])
+                infoLIST.append(ProfileDICT['嵐'][n]['EName'])
+                infoLIST.append(ProfileDICT['嵐'][n]['Pic'])
+                infoLIST.append(ProfileDICT['嵐'][n]['Birth'])
+                infoLIST.append(ProfileDICT['嵐'][n]['Blood'])
+                infoLIST.append(str(ProfileDICT['嵐'][n]['height']))
+                infoLIST.append(ProfileDICT['嵐'][n]['Born'])
+                infoLIST.append(ProfileDICT['嵐'][n]['color'])
+                
+    if name in kattun:
+        for n in range(len(kattun)):
+            if ProfileDICT['KAT-TUN'][n]['JName']==name:
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['JName'])
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['EName'])
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['Pic'])
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['Birth'])
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['Blood'])
+                infoLIST.append(str(ProfileDICT['KAT-TUN'][n]['height']))
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['Born'])
+                infoLIST.append(ProfileDICT['KAT-TUN'][n]['color'])
+            
+    if name in jump:
+        for n in range(len(jump)):
+            if ProfileDICT['Hey! Say! JUMP'][n]['JName']==name:
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['JName'])
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['EName'])
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['Pic'])
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['Birth'])
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['Blood'])
+                infoLIST.append(str(ProfileDICT['Hey! Say! JUMP'][n]['height']))
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['Born'])
+                infoLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['color'])
+
+    return infoLIST
+
 def countDays(group,anniversary):
     '''
     輸入:團名,'formationdate'/'debutdate'
@@ -379,6 +435,7 @@ async def on_message(message):
             replySTR = "請問您是問哪一位成員呢？"
             
         else:  #給答案
+         
             #Group
             if type(mscDICT[client.user.id]["group"])==list and mscDICT[client.user.id]["member"] =="":
                 if type(mscDICT[client.user.id]["request"]) == int:
@@ -440,6 +497,18 @@ async def on_message(message):
                 
                 elif mscDICT[client.user.id]["request"] == 'weight': #問體重
                     replySTR="怎麼可以問人家體重呢> <"
+                    
+                elif mscDICT[client.user.id]["request"] == 'personalinfo': #問個人資訊
+                     info=findInfo(mscDICT[client.user.id]["member"])   
+                     replySTR=f'''日文姓名：{info[0]}
+英文姓名：{info[1]}
+生日：{info[3]}
+血型：{info[4]}
+身高：{info[5]}cm
+出生地：{info[6]}
+成員色：{info[7]}色
+{info[2]} '''
+
                     
                 #anniversary
                 elif mscDICT[client.user.id]["request"] in ('formationdate','debutdate','formationdate,years','formationdate.days','debutdate.years','debutdate.days'):
