@@ -25,9 +25,9 @@ mscDICT = {# "userID": {requestTemplate}
 with open("account.info", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 # 另一個寫法是：accountDICT = json.load(open("account.info", encoding="utf-8"))
-with open('D:\HAO\Hao的研所\實習\Jstorm2\ProfileDICT.json', 'r') as f:
+with open('D:\HAO\Hao的研所\實習\Jstorm2\json\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
-with open('D:\HAO\Hao的研所\實習\Jstorm2\GroupDICT.json', 'r') as f:
+with open('D:\HAO\Hao的研所\實習\Jstorm2\json\GroupDICT.json', 'r') as f:
     GroupDICT=json.load(f)
 
 tokio=['国分太一','城島茂','松岡昌宏']
