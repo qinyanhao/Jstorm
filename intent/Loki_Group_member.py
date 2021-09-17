@@ -195,5 +195,27 @@ def getResult(inputSTR, utterance, args, resultDICT):
                     group=k
             resultDICT['Group']=group
             resultDICT['member']=name
+            
+    if utterance == "[松本潤]是誰":
+        if args[0] in nicknameLIST:
+            for k in userDefinedDICT.keys():
+                if args[0] in userDefinedDICT[k]:
+                    name=k
+            if name in tokio:
+                resultDICT['Group']='TOKIO'
+                resultDICT['member']=name
+                resultDICT['request']='personalinfo'
+            if name in arashi:
+                resultDICT['Group']='嵐'
+                resultDICT['member']=name
+                resultDICT['request']='personalinfo'
+            if name in kattun:
+                resultDICT['Group']='KAT-TUN'
+                resultDICT['member']=name
+                resultDICT['request']='personalinfo'
+            if name in jump:
+                resultDICT['Group']='Hey! Say! JUMP'
+                resultDICT['member']=name
+                resultDICT['request']='personalinfo'
 
     return resultDICT

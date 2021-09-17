@@ -61,29 +61,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "體重":
         resultDICT['request']='weight'
-        
-    if utterance == "[年]":
-        if args[0] == '年':
-            resultDICT['request']='year'
-        elif args[0] =='月':
-            resultDICT['request']='month'
-        elif args[0] =='日':
-            resultDICT['request']='day'
 
-    if utterance == "[日]":
-        if args[0] == '年':
-            resultDICT['request']='year'
-        elif args[0] =='月':
-            resultDICT['request']='month'
-        elif args[0] =='日':
-            resultDICT['request']='day'
-
-    if utterance == "個人[資訊]":
-        if args[0] in ("資訊","資料"):
-            resultDICT['request']='personalinfo'
-
-    if utterance == "基本[資料]":
-        if args[0] in ("資訊","資料"):
-            resultDICT['request']='personalinfo'
+    
 
     return resultDICT
