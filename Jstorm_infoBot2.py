@@ -303,7 +303,7 @@ async def on_message(message):
     replySTR = ""    # Bot 回應訊息
 
     if msgSTR in ("","哈囉","嗨","嗨嗨","你好","您好","在嗎","早安","午安","晚安","こんにちは","こんばんは","やっほー","やっはろ","やほー","Hi","hi","hello","Hello","安安"):
-        replySTR = "你好呀~有什麼可以為你服務的？\n我可以提供你Jstorm旗下藝人的基本資料喔！\n（各團成員、日英姓名、生日、年齡、血型、出身地）"
+        replySTR = "你好呀~有什麼可以為你服務的？\n我可以提供你Jstorm旗下藝人的基本資料喔！\n（團體的基本資料、各團成員、日英姓名、生日、年齡、血型、身高、出身地、成員色）"
         await message.reply(replySTR)
 
     else:
@@ -315,8 +315,11 @@ async def on_message(message):
                                        "member":"",
                                        "request":"",
                                        "completed": False,
-                                       "updatetime": datetime.datetime.now()
-                                              }
+                                       "updatetime": datetime.datetime.now()}
+            
+        if len(lokiResultDICT.keys()) == 1 and type(mscDICT[client.user.id]["member"])==list:
+            mscDICT[client.user.id]["member"] = ""
+            
         #多輪對話
         if lokiResultDICT:
             for k in lokiResultDICT.keys():    # 將 Loki Intent 的結果，存進 Global mscDICT 變數，可替換成 Database。
@@ -465,25 +468,25 @@ async def on_message(message):
                     if mscDICT[client.user.id]["group"] == 'TOKIO':
                         tokio_color=findColorLIST('TOKIO')
                         if mscDICT[client.user.id]["request"] in tokio_color:
-                            index=tokio.index(mscDICT[client.user.id]["request"])
+                            index=tokio_color.index(mscDICT[client.user.id]["request"])
                             member=tokio[index]
                             replySTR=member+' 的成員色是 '+mscDICT[client.user.id]["request"]+'色。\n'                    
                     elif mscDICT[client.user.id]["group"] == '嵐':
                         arashi_color=findColorLIST('嵐')
                         if mscDICT[client.user.id]["request"] in arashi_color:
-                            index=arashi.index(mscDICT[client.user.id]["request"])
+                            index=arashi_color.index(mscDICT[client.user.id]["request"])
                             member=arashi[index]
                             replySTR=member+' 的成員色是 '+mscDICT[client.user.id]["request"]+'色。\n'                         
                     elif mscDICT[client.user.id]["group"] == 'KAT-TUN':
                         kattun_color=findColorLIST('KAT-TUN')
                         if mscDICT[client.user.id]["request"] in kattun_color:
-                            index=kattun.index(mscDICT[client.user.id]["request"])
+                            index=kattun_color.index(mscDICT[client.user.id]["request"])
                             member=kattun[index]
                             replySTR=member+' 的成員色是 '+mscDICT[client.user.id]["request"]+'色。\n'                       
                     elif mscDICT[client.user.id]["group"] == 'Hey! Say! JUMP':
                         jump_color=findColorLIST('Hey! Say! JUMP')
                         if mscDICT[client.user.id]["request"] in jump_color:
-                            index=jump.index(mscDICT[client.user.id]["request"])
+                            index=jump_color.index(mscDICT[client.user.id]["request"])
                             member=jump[index]
                             replySTR=member+' 的成員色是 '+mscDICT[client.user.id]["request"]+'色。\n'
                 

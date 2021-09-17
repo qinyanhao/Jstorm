@@ -104,10 +104,10 @@ GroupDICT['Hey! Say! JUMP']={'formationdate':'2007.9.24','debutdate':'2007.11.14
 
 import json
 with open('ProfileDICT.json', 'w') as f:
-      json.dump(ProfileDICT,f)
+      json.dump(ProfileDICT,f,ensure_ascii=False)
     
 with open('GroupDICT.json', 'w') as f:
-      json.dump(GroupDICT,f)
+      json.dump(GroupDICT,f,ensure_ascii=False)
     
 
 
