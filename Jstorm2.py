@@ -241,7 +241,7 @@ def testLoki(inputLIST, filterLIST):
 
 if __name__ == "__main__":
     # 輸入其它句子試看看
-    inputLIST = ["出道幾周年"]
-    filterLIST = ['Group']
+    inputLIST = ["月"]
+    filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
