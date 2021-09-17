@@ -78,6 +78,28 @@ def findAge(name): #計算歲數
     
     return age
 
+def findBlood(group,blood):
+    '''
+    輸入:團名,血型
+    輸出:人名
+    '''
+    bloodLIST=[]
+    for n in range(0,len(ProfileDICT[group])):
+        if ProfileDICT[group][n]['Blood'] == blood:
+            bloodLIST.append(ProfileDICT[group][n]['JName'])
+        else:
+            bloodLIST.append('no')
+            
+    nameLIST=[]
+    for e in bloodLIST:
+        if e != 'no':
+            nameLIST.append(e)
+    
+    if nameLIST==[]:
+        nameLIST='no'
+
+    return nameLIST
+
 def findHeight(name):
     '''
     輸入：全名
@@ -316,7 +338,14 @@ async def on_message(message):
                                        "request":"",
                                        "completed": False,
                                        "updatetime": datetime.datetime.now()}
-            
+         
+        # 處理時間差
+        datetimeNow = datetime.datetime.now()  # 取得當下時間
+        timeDIFF = datetimeNow - mscDICT[client.user.id]["updatetime"]
+        if timeDIFF.total_seconds() <= 300:    # 以秒為單位，5分鐘以內都算是舊對話
+            mscDICT[client.user.id]["updatetime"] = datetimeNow    
+        
+        #如果member是list，換Group或是換request時清空member
         if len(lokiResultDICT.keys()) == 1 and type(mscDICT[client.user.id]["member"])==list:
             mscDICT[client.user.id]["member"] = ""
             
@@ -333,7 +362,7 @@ async def on_message(message):
 
         print("mscDICT =")
         pprint(mscDICT)
-        
+ 
         if mscDICT[client.user.id]["request"] == "":  # 多輪對話的問句。
             replySTR = '請問你想問的是哪方面呢？（成員、日英姓名、生日、年齡、血型、身高、出身地、成員色）'
         
@@ -666,15 +695,23 @@ async def on_message(message):
                 
                 elif mscDICT[client.user.id]["request"].encode('UTF-8').isalpha() == False: 
     
-                    if len(mscDICT[client.user.id]["request"]) == 2 :#request 為血型
-                        if mscDICT[client.user.id]["member"] == 'no': #沒有是該血型的人
-                            replySTR=mscDICT[client.user.id]["group"]+" 中沒有寫血型是 "+mscDICT[client.user.id]["request"]+" 的成員。"
-                            
-                        elif mscDICT[client.user.id]["request"].isdigit() == True: #距離生日的天數是兩位數
+                    if len(mscDICT[client.user.id]["request"]) == 2 :
+                        if mscDICT[client.user.id]["request"].isdigit() == True: #距離生日的天數是兩位數
                             replySTR="離 "+mscDICT[client.user.id]["member"]+" 的生日還有 "+mscDICT[client.user.id]["request"]+" 天。"
+                        
+                        else:
+                            memberLIST=findBlood(mscDICT[client.user.id]["group"],mscDICT[client.user.id]["request"])
+                            if memberLIST == 'no': #沒有是該血型的人
+                                replySTR=mscDICT[client.user.id]["group"]+" 中沒有寫血型是 "+mscDICT[client.user.id]["request"]+" 的成員。"
                             
-                        else: #回報血型
-                            replySTR="他是 "+mscDICT[client.user.id]["request"]+" 。"
+                            elif type(memberLIST)==list:
+                                answerSTR=""
+                                for n in range(len(memberLIST)):
+                                    answerSTR+=memberLIST[n]+" "
+                                replySTR =answerSTR+"是 "+mscDICT[client.user.id]["request"]+"。"
+                           
+                            else: #回報血型
+                                replySTR="他是 "+mscDICT[client.user.id]["request"]+" 。"
                             
                     
                     elif 2< len(mscDICT[client.user.id]["request"]) <5 : #request是地名
