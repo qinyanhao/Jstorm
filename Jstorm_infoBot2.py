@@ -11,6 +11,10 @@ from pprint import pprint
 from Jstorm2 import runLoki
 logging.basicConfig(level=logging.INFO)
 
+#Discord token
+DISCORD_TOKEN=""
+
+
 # <取得多輪對話資訊>
 client = discord.Client()
 
@@ -22,8 +26,10 @@ mscDICT = {# "userID": {requestTemplate}
            }
 # </取得多輪對話資訊>
 
-with open("account.info", encoding="utf-8") as f:
-    accountDICT = json.loads(f.read())
+# with open("account.info", encoding="utf-8") as f:
+#     accountDICT = json.loads(f.read())
+# DISCORD_TOKEN=accountDICT["discord_token"]
+    
 # 另一個寫法是：accountDICT = json.load(open("account.info", encoding="utf-8"))
 with open('D:\HAO\Hao的研所\實習\Jstorm2\json\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
@@ -858,6 +864,6 @@ async def on_message(message):
 
 
 if __name__ == "__main__":
-    client.run(accountDICT["discord_token"])
+    client.run(DISCORD_TOKEN)
 
     #getLokiResult("")
