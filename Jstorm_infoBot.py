@@ -24,16 +24,16 @@ requestTemplate ={"group":"",
 
 mscDICT = {# "userID": {requestTemplate}
            }
-# </取得多輪對話資訊>
+# <\取得多輪對話資訊>
 
 with open("account.info", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 DISCORD_TOKEN=accountDICT["discord_token"]
     
 # 另一個寫法是：accountDICT = json.load(open("account.info", encoding="utf-8"))
-with open('.\json\ProfileDICT.json', 'r') as f:
+with open('D:\HAO\Hao的研所\實習\Jstorm\json\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
-with open('.\json\GroupDICT.json', 'r') as f:
+with open('D:\HAO\Hao的研所\實習\Jstorm\json\GroupDICT.json', 'r') as f:
     GroupDICT=json.load(f)
 
 tokio=['国分太一','城島茂','松岡昌宏']
@@ -198,7 +198,7 @@ def findColorLIST(group):
 
 def findDate(group,anniversary):
     '''
-    輸入:團名,'formationdate'/'debutdate'
+    輸入:團名,'formationdate'\'debutdate'
     輸出：日期(str)
     '''
     if anniversary=='formationdate':
@@ -222,6 +222,8 @@ def findDate(group,anniversary):
     return date
 
 def findInfo(name):
+    
+    
     '''
     輸入：本名
     輸出：[日文名字,英文名字,圖片,生日,血型,身高,出生地,成員色](list)
@@ -277,9 +279,33 @@ def findInfo(name):
 
     return infoLIST
 
+def findPlaceLIST(group,place):
+    '''
+    輸入：團名,地名
+    輸出：人名(list)
+    '''
+    nameLIST=[]
+    if group =='TOKIO':
+        for n in range(len(tokio)):
+            if ProfileDICT['TOKIO'][n]['Born'] == place:
+                nameLIST.append(ProfileDICT['TOKIO'][n]['JName'])                 
+    if group=='嵐':
+        for n in range(len(arashi)):
+            if ProfileDICT['嵐'][n]['Born'] == place:
+                nameLIST.append(ProfileDICT['嵐'][n]['JName'])                             
+    if group=='KAT-TUN':
+        for n in range(len(kattun)):
+           if ProfileDICT['KAT-TUN'][n]['Born'] == place:
+                nameLIST.append(ProfileDICT['KAT-TUN'][n]['JName'])                               
+    if group=='Hey! Say! JUMP':
+        for n in range(len(jump)):
+            if ProfileDICT['Hey! Say! JUMP'][n]['Born'] == place:
+                nameLIST.append(ProfileDICT['Hey! Say! JUMP'][n]['JName'])  
+    return nameLIST
+
 def countDays(group,anniversary):
     '''
-    輸入:團名,'formationdate'/'debutdate'
+    輸入:團名,'formationdate'\'debutdate'
     輸出:距離下一次節日的天數(int)
     '''
     if anniversary == 'formationdate':
@@ -318,7 +344,7 @@ def countDays(group,anniversary):
 
 def countYears(group,anniversary):
     '''
-    輸入:團名,'formationdate'/'debutdate'
+    輸入:團名,'formationdate'\'debutdate'
     輸出:年(int)
     '''
     if anniversary == 'formationdate':
@@ -425,14 +451,17 @@ async def on_message(message):
 
         print("mscDICT =")
         pprint(mscDICT)
- 
-        if mscDICT[client.user.id]["request"] == "":  # 多輪對話的問句。
+        
+        # 多輪對話的問句。
+        if mscDICT[client.user.id]["request"] == "":  
             replySTR = '請問你想問的是哪方面呢？\n（基本資料、日英姓名、生日、年齡、血型、身高、出身地、成員色）'
         
         elif mscDICT[client.user.id]['group'] == "" and mscDICT[client.user.id]["member"] == "": 
             if mscDICT[client.user.id]["request"] in ("age","height","birth",'year','month','day','color'):
                 replySTR = "請問您是問哪一個團體的哪位成員呢？"   
             elif mscDICT[client.user.id]["request"] in ("formationdate","debutdate","formationdate.years","debutdate.years","formationdate.days","debutdate.days","age.max","age.min","age.sort.HtoL","age.sort.LtoH","height.max","height.min","height.sort.HtoL","height.sort.LtoH"):
+                replySTR = "請問您是問哪一個團體的呢？"
+            else:
                 replySTR = "請問您是問哪一個團體的呢？"
         
         elif mscDICT[client.user.id]["group"]=="":
@@ -481,18 +510,16 @@ async def on_message(message):
                     
                     
                 else: #type(mscDICT[client.user.id]["request"])!=list   
-                    if len(mscDICT[client.user.id]["request"])>2:#問特定出生地
+                    if mscDICT[client.user.id]["request"] == 'blood':#問特定血型
+                        answerSTR=""
+                        for n in range(len(mscDICT[client.user.id]["member"])):
+                            answerSTR+=mscDICT[client.user.id]["member"][n]+" 是 "+ProfileDICT[mscDICT[client.user.id]["group"]][n]['Blood']+" 。\n"
+                        replySTR =answerSTR
+                    elif len(mscDICT[client.user.id]["request"])>2:#問特定出生地
                         answerSTR=""
                         for n in range(len(mscDICT[client.user.id]["member"])):
                             answerSTR+=lokiResultDICT['member'][n]+" "
-                        replySTR =answerSTR+"來自 "+mscDICT[client.user.id]["request"]+"。"
-                        
-                    else: #問特定血型
-                        answerSTR=""
-                        for n in range(len(mscDICT[client.user.id]["member"])):
-                            answerSTR+=lokiResultDICT['member'][n]+" "
-                        replySTR =answerSTR+"是 "+mscDICT[client.user.id]["request"]+"。"
-                        
+                        replySTR =answerSTR+"來自 "+mscDICT[client.user.id]["request"]+"。" 
                     
             
             elif type(mscDICT[client.user.id]["member"])==str:
@@ -761,12 +788,12 @@ async def on_message(message):
                                   indexLIST[indexLIST.index(e)]= l
                         answerSTR=""
                         for n in indexLIST:
-                            answerSTR += ProfileDICT[mscDICT[client.user.id]["group"]][n]['JName']+"，"+str(ProfileDICT[mscDICT[client.user.id]["group"]][n]['height'])+"cm\n"
-                            replySTR = "身高從高到矮是：\n"+answerSTR
+                            answerSTR += ProfileDICT[mscDICT[client.user.id]["group"]][n]['JName']+"，"+str(ProfileDICT[mscDICT[client.user.id]["group"]][n]['height'])+"cm"+"\n"
+                            replySTR = "身高從高到矮是："+"\n"+answerSTR
                         
                        
-                elif mscDICT[client.user.id]["request"].encode('UTF-8').isalnum() == True: #request是身高
-                    replySTR= mscDICT[client.user.id]["member"]+"，他 "+str(findHeight(mscDICT[client.user.id]["member"]))+" cm。"
+                # elif mscDICT[client.user.id]["request"].encode('UTF-8').isalnum() == True: #request是身高
+                #     replySTR= mscDICT[client.user.id]["member"]+"，他 "+str(findHeight(mscDICT[client.user.id]["member"]))+" cm。"
                     
                 
                 elif mscDICT[client.user.id]["request"].encode('UTF-8').isalpha() == False: 
@@ -778,7 +805,7 @@ async def on_message(message):
                         else:
                             memberLIST=findBlood(mscDICT[client.user.id]["group"],mscDICT[client.user.id]["request"])
                             if memberLIST == 'no': #沒有是該血型的人
-                                replySTR=mscDICT[client.user.id]["group"]+" 中沒有寫血型是 "+mscDICT[client.user.id]["request"]+" 的成員。"
+                                replySTR=mscDICT[client.user.id]["group"]+" 中沒有血型是 "+mscDICT[client.user.id]["request"]+" 的成員。"
                             
                             elif type(memberLIST)==list:
                                 answerSTR=""
@@ -793,7 +820,17 @@ async def on_message(message):
                     elif 2< len(mscDICT[client.user.id]["request"]) <5 : #request是地名
                         if mscDICT[client.user.id]["member"] == 'no': #沒有來自該地的人
                             replySTR=mscDICT[client.user.id]["group"]+" 中沒有來自 "+mscDICT[client.user.id]["request"]+" 的成員。"
-                            
+                        
+                        elif mscDICT[client.user.id]["member"] == "": #有沒有來自該地的人
+                            nameLIST=findPlaceLIST(mscDICT[client.user.id]["group"],mscDICT[client.user.id]["request"])
+                            if nameLIST==[]: #沒有來自該地的人
+                                replySTR=mscDICT[client.user.id]["group"]+" 中沒有來自 "+mscDICT[client.user.id]["request"]+" 的成員。"
+                            else:
+                               answerSTR=""
+                               for p in nameLIST:
+                                   answerSTR+=p+" "
+                               replySTR =answerSTR+"來自 "+mscDICT[client.user.id]["request"]+"。" 
+                        
                         elif mscDICT[client.user.id]["request"].isdigit() == True: #距離生日的天數是三位數
                             replySTR="離 "+mscDICT[client.user.id]["member"]+" 的生日還有 "+mscDICT[client.user.id]["request"]+" 天。"
                             
@@ -804,7 +841,8 @@ async def on_message(message):
                     else: #request是生日
                         if mscDICT[client.user.id]["request"].isdigit(): #距離生日的天數是個位數
                             replySTR="離 "+mscDICT[client.user.id]["member"]+" 的生日還有 "+mscDICT[client.user.id]["request"]+" 天。"
-                            
+                        elif len(mscDICT[client.user.id]["request"]) == 5: #request是身高
+                            replySTR="是 " + mscDICT[client.user.id]["member"]+ " ，他 " + mscDICT[client.user.id]["request"] + "。"
                         else: #request是生日
                             replySTR="他的生日是 "+mscDICT[client.user.id]["request"]+" 。"
                             

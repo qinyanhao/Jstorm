@@ -46,22 +46,22 @@ from requests import post
 from requests import codes
 import math
 try:
+    from intent import Loki_request
     from intent import Loki_Profile_name
     from intent import Loki_Profile_born
     from intent import Loki_Profile_age
     from intent import Loki_Profile_color
-    from intent import Loki_request
     from intent import Loki_Profile_birth
     from intent import Loki_Profile_height
     from intent import Loki_Profile_blood
     from intent import Loki_Group_member
     from intent import Loki_Group
 except:
+    from .intent import Loki_request
     from .intent import Loki_Profile_name
     from .intent import Loki_Profile_born
     from .intent import Loki_Profile_age
     from .intent import Loki_Profile_color
-    from .intent import Loki_request
     from .intent import Loki_Profile_birth
     from .intent import Loki_Profile_height
     from .intent import Loki_Profile_blood
@@ -114,7 +114,7 @@ class LokiResult():
                     self.balance = result["word_count_balance"]
                     self.lokiResultLIST = result["result_list"]
             else:
-                self.message = "Connect failed."
+                self.message = "{} Connection failed.".format(result.status_code)
         except Exception as e:
             self.message = str(e)
 
@@ -189,6 +189,10 @@ def runLoki(inputLIST, filterLIST=[]):
     if lokiRst.getStatus():
         for index, key in enumerate(inputLIST):
             for resultIndex in range(0, lokiRst.getLokiLen(index)):
+                # request
+                if lokiRst.getIntent(index, resultIndex) == "request":
+                    resultDICT = Loki_request.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+
                 # Profile_name
                 if lokiRst.getIntent(index, resultIndex) == "Profile_name":
                     resultDICT = Loki_Profile_name.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
@@ -204,10 +208,6 @@ def runLoki(inputLIST, filterLIST=[]):
                 # Profile_color
                 if lokiRst.getIntent(index, resultIndex) == "Profile_color":
                     resultDICT = Loki_Profile_color.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
-
-                # request
-                if lokiRst.getIntent(index, resultIndex) == "request":
-                    resultDICT = Loki_request.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
 
                 # Profile_birth
                 if lokiRst.getIntent(index, resultIndex) == "Profile_birth":
@@ -241,7 +241,7 @@ def testLoki(inputLIST, filterLIST):
 
 if __name__ == "__main__":
     # 輸入其它句子試看看
-    inputLIST = ["月"]
+    inputLIST = ["八乙女光"]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
