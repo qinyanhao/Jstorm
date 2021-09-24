@@ -15,10 +15,10 @@
 """
 
 import json
-with open('D:\HAO\Hao的研所\實習\Jstorm\json\ProfilePic.json', 'r') as f:
+with open('../json/ProfilePic.json', 'r') as f:
     ProfilePic=json.load(f)
 
-with open('D:\HAO\Hao的研所\實習\Jstorm\json\GroupDICT.json', 'r') as f:
+with open('../json/GroupDICT.json', 'r') as f:
     GroupDICT=json.load(f)
 
 DEBUG_Group = True

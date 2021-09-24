@@ -31,9 +31,9 @@ with open("account.info", encoding="utf-8") as f:
 DISCORD_TOKEN=accountDICT["discord_token"]
     
 # 另一個寫法是：accountDICT = json.load(open("account.info", encoding="utf-8"))
-with open('D:\HAO\Hao的研所\實習\Jstorm\json\ProfileDICT.json', 'r') as f:
+with open('./json/ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
-with open('D:\HAO\Hao的研所\實習\Jstorm\json\GroupDICT.json', 'r') as f:
+with open('./json/GroupDICT.json', 'r') as f:
     GroupDICT=json.load(f)
 
 tokio=['国分太一','城島茂','松岡昌宏']
