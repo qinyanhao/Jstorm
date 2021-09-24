@@ -15,7 +15,7 @@
 """
 
 import json
-with open('../json/ProfileDICT.json', 'r') as f:
+with open('./json/ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
 
 DEBUG_Group_member = True

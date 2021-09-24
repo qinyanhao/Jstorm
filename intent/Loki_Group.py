@@ -15,10 +15,10 @@
 """
 
 import json
-with open('../json/ProfilePic.json', 'r') as f:
+with open('./json/ProfilePic.json', 'r') as f:
     ProfilePic=json.load(f)
 
-with open('../json/GroupDICT.json', 'r') as f:
+with open('./json/GroupDICT.json', 'r') as f:
     GroupDICT=json.load(f)
 
 DEBUG_Group = True

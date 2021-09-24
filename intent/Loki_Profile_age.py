@@ -16,7 +16,7 @@
 import datetime
 import math
 import json
-with open('../json/ProfileDICT.json', 'r') as f:
+with open('./json/ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
 
 DEBUG_Profile_age = True
