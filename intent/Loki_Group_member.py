@@ -15,7 +15,7 @@
 """
 
 import json
-with open('D:\HAO\Hao的研所\實習\Jstorm\json\ProfileDICT.json', 'r') as f:
+with open('..\json\ProfileDICT.json', 'r') as f:
     ProfileDICT=json.load(f)
 
 DEBUG_Group_member = True
